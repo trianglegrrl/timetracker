@@ -1,0 +1,108 @@
+=prefixify( $property, $value )
+  @each $prefix in '-webkit-', '-moz-', '-ms-', '-o-', ''
+    #{$prefix}#{$property}: unquote( $value )
+
+=font-face( $font-name, $file-name, $weight: normal, $style: normal )
+  @font-face
+    font-family: $font-name
+    src: font-url('#{$file-name}.eot')
+    src: font-url('#{$file-name}.eot?#iefix') format('embedded-opentype'), font-url('#{$file-name}.svg##{$font-name}') format('svg'), font-url('#{$file-name}.woff') format('woff'), font-url('#{$file-name}.ttf') format('truetype')
+    font-weight: $weight
+    font-style: $style
+
+=transition( $transition )
+  +prefixify( transition, $transition )
+
+=transition-property( $property )
+  +prefixify( transition-property, $property )
+
+=transition-duration( $duration )
+  +prefixify( transition-duration, $duration )
+
+=transition-timing-function( $easing )
+  +prefixify( transition-timing-function, $easing )
+
+=transition-delay( $delay )
+  +prefixify( transition-delay, $delay )
+
+=box-shadow( $shadow )
+  +prefixify( box-shadow, $shadow )
+
+=box-sizing( $sizing )
+  +prefixify( box-sizing, $sizing )
+
+=border-radius( $radius )
+  +prefixify( border-radius, $radius )
+
+=background-vertical-gradient( $startcolor, $endcolor )
+  background:
+    image: -webkit-linear-gradient(top, $startcolor, $endcolor)
+    image: -moz-linear-gradient(top, $startcolor, $endcolor)
+    image: -ms-linear-gradient(top, $startcolor, $endcolor) // IE 10+
+    image: -o-linear-gradient(top, $startcolor, $endcolor)
+    image: linear-gradient(top, $startcolor, $endcolor)
+    position: top left
+    repeat: no-repeat
+
+=background-horizontal-gradient( $startcolor, $endcolor )
+  background:
+    image: -webkit-linear-gradient(left, $startcolor, $endcolor)
+    image: -moz-linear-gradient(left, $startcolor, $endcolor)
+    image: -ms-linear-gradient(left, $startcolor, $endcolor) // IE 10+
+    image: -o-linear-gradient(left, $startcolor, $endcolor)
+    image: linear-gradient(left, $startcolor, $endcolor)
+    position: top left
+    repeat: no-repeat
+
+=background-radial-gradient( $startcolor, $endcolor, $shape: circle, $position: 100%)
+  background:
+    image: -moz-radial-gradient(center, $shape cover,  $startcolor 0%, $endcolor $position)
+    image: -webkit-gradient(radial, center center, 0px, center center, $position, color-stop(0%, $startcolor), color-stop($position, $endcolor))
+    image: -webkit-radial-gradient(center, $shape cover, $startcolor 0%, $endcolor $position)
+    image: -o-radial-gradient(center, $shape cover, $startcolor 0%, $endcolor $position)
+    image: -ms-radial-gradient(center, $shape cover, $startcolor 0%, $endcolor $position)
+    image: radial-gradient($shape at center,  $startcolor 0%, $endcolor $position)
+
+=background-size( $size )
+  +prefixify( background-size, $size )
+  
+=transform( $transform )
+  +prefixify( transform, $transform )
+
+=rotate( $deg )
+  +transform( rotate( $deg ) )
+
+=flip-horizontal
+  +transform( scaleX( -1 ) )
+  filter: FlipH // IE 6, 7, 8
+
+=appearance( $appearance )
+  +prefixify( appearance, $appearance )
+
+=animation( $animation )
+  +prefixify( animation, $animation )
+
+=keyframes( $name )
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @-o-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content
+
+=font-smoothing( $font-smoothing )
+  -webkit-font-smoothing: $font-smoothing
+  font-smoothing: $font-smoothing
+
+=backface-visibility( $bfv )
+  +prefixify( backface-visibility, $bfv )
+
+=perspective( $perspective )
+  +prefixify( perspective, $perspective )
+
+=transform-style( $style )
+  +prefixify( transform-style, $style )

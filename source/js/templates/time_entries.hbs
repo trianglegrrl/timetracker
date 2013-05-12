@@ -1,0 +1,22 @@
+<section id='content' class='time-entries'>
+  <table id='time-entries-table'>
+    <thead>
+      <tr>
+        <th class='date'>Date</th>
+        <th class='project'>Project</th>
+        <th class='hours'>Hours</th>
+        <th class='notes'>Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each this}}
+        <tr>
+          <td class='date'>{{{niceDate}}}</td>
+          <td class='project'>{{{project.name}}}</td>
+          <td class='hours'>{{{hours}}}</td>
+          <td class='notes'>{{{notes}}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

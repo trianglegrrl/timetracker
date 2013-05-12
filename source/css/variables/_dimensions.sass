@@ -1,0 +1,24 @@
+// Dimensions
+// Base grid:
+//    - 990px wide
+//    - 24 x 24px columns
+//    - 23 x 18px gutters (0.75 column width)
+//    - 24px line height
+$column: 24px
+$gutter: 18px
+$line-height: 24px
+$page-width: (24 * $column) + (23 * $gutter) // 990px
+
+// Possible layouts (all with 18px gutters inbetween):
+//    - 24 x 24px cols (base)
+//    - 12 x 66px cols (twelfth)
+//    - 6 x 150px cols (sixth)
+//    - 4 x 234px cols (fourth)
+//    - 3 x 318px cols (third)
+//    - 2 x 486px cols (half)
+//    - Mix & Match
+$twelfth: (2 * $column) + $gutter
+$sixth: (4 * $column) + (3 * $gutter)
+$fourth: (6 * $column) + (5 * $gutter)
+$third: (8 * $column) + (7 * $gutter)
+$half: (12 * $column) + (11 * $gutter)

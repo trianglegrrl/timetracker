@@ -1,0 +1,32 @@
+@import mixins/css3
+@import mixins/clearfix
+@import mixins/icons
+@import variables/dimensions
+@import variables/colors
+@import variables/fonts
+@import variables/icons/fontawesome
+
++font-face('FontAwesome', 'fontawesome-webfont')
+
+*
+  outline: none
+
+a,
+button
+  text-decoration: none
+  cursor: pointer
+
+  img
+    border: 0
+
+body
+  background: #f3f3f3
+  font-family: $helvetica
+  padding: 0
+  margin: 0
+  border: 0 solid #f3f3f3
+    top-width: 72px
+    bottom-width: 72px
+
+@import partials/header
+@import partials/content

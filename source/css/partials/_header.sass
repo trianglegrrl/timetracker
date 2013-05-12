@@ -1,0 +1,72 @@
+#app-header
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  height: 50px
+  overflow: hidden
+  background: rgba(white, 0.85)
+  border-bottom: 1px solid #ddd
+
+  .wrapper
+    width: $page-width
+    position: relative
+    padding: 12px $gutter
+    margin: 0 auto
+    white-space: nowrap
+    text-overflow: ellipsis
+
+  h1
+    display: inline-block
+    padding: 0
+    margin: 0
+    font:
+      size: 20px
+      weight: 500
+    color: #222
+
+    &:before
+      margin-right: 6px
+      +font-icon( 'FontAwesome', $fontawesome-time )
+
+  #totals
+    display: block
+    padding: 0
+    margin: -12px 0
+    float: right
+
+    li
+      display: inline-block
+      padding: 7px $column
+      margin: 0 -2px
+      text-align: center
+      color: white
+      font:
+        size: 18px
+        weight: 500
+      min-width: $twelfth
+
+      h2
+        font:
+          size: 14px
+          weight: 300
+        text-transform: uppercase
+        margin: 0 0 2px
+        line-height: 1
+
+        strong
+          font-weight: bold
+
+      span
+        display: inline-block
+        margin: 0 4px
+        font-weight: 100
+
+      &.unpaid
+        background: #c33
+
+      &.paid
+        background: #3c6
+
+      &.total
+        background: #39c

@@ -11,8 +11,13 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
+.sass-cache
 
 # YARD artifacts
 .yardoc
 _yardoc
 doc/
+
+# Ignore Vagrant files
+Vagrantfile
+.vagrant
