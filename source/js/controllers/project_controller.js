@@ -1,0 +1,1 @@
+ETT.ProjectController = Em.ObjectController.extend();
