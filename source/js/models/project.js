@@ -6,22 +6,18 @@ ETT.Project = DS.Model.extend({
 
   paidHours: function() {
     var reducer = function(i, timeEntry, index, enumerable) {
-      if (timeEntry.get('paid') === true) {
-        return i + parseFloat(timeEntry.get('hours'));
-      }
+      if (timeEntry.get('paid') === false) { return i; }
+      return i + parseFloat(timeEntry.get('hours'));
     };
-    var paidHours = this.get('timeEntries').reduce(reducer, 0);
-    return (isNaN(paidHours)) ? 0 : paidHours;
+    return this.get('timeEntries').reduce(reducer, 0);
   }.property('timeEntries.@each.hours', 'timeEntries.@each.paid'),
 
   unpaidHours: function() {
     var reducer = function(i, timeEntry, index, enumerable) {
-      if (timeEntry.get('paid') === false) {
-        return i + parseFloat(timeEntry.get('hours'));
-      }
+      if (timeEntry.get('paid') === true) { return i; }
+      return i + parseFloat(timeEntry.get('hours'));
     };
-    var unpaidHours = this.get('timeEntries').reduce(reducer, 0);
-    return (isNaN(unpaidHours)) ? 0 : unpaidHours;
+    return this.get('timeEntries').reduce(reducer, 0);
   }.property('timeEntries.@each.hours', 'timeEntries.@each.paid'),
 
   totalHours: function() {

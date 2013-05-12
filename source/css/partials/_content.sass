@@ -11,11 +11,78 @@
     width: 100%
     border-collapse: collapse
 
-    th
-      padding: 12px
+    th, td
+      padding: $gutter
+      border: 1px solid #eee
+      vertical-align: top
 
-    td
-      padding: 6px 12px
+      &.date
+        width: $twelfth + $gutter
 
+      &.project
+        width: $sixth
+    
       &.hours
-        text-align: center
+        width: $column
+
+      &.dollars
+        width: $twelfth + $gutter
+
+      &.paid
+        width: $twelfth
+        padding: $gutter 0
+        color: darken(#3c6, 10%)
+
+    tbody
+      td
+        &.project,
+        &.hours,
+        &.paid
+          text-align: center
+
+        &.dollars
+          text-align: right
+
+        &.dollars
+          &:before
+            content: '$'
+            display: inline-block
+            margin-right: 4px
+            float: left
+            color: #999
+
+        &.paid
+          cursor: pointer
+          color: darken(#3c6, 10%)
+          background: rgba(#3c6, 0.1)
+
+          &:hover
+            background: #3c6
+            color: white
+            
+          span
+            display: none
+
+
+      tr
+        &.paid td
+          background: rgba(#3c6, 0.05)
+          color: darken(#3c6, 10%)
+          border-color: rgba(#3c6, 0.1)
+
+          &.dollars:before
+            color: rgba(darken(#3c6, 10%), 0.3)
+
+          &.paid
+            background: rgba(#3c6, 0.2)
+
+            &:before
+              color: darken(#3c6, 10%)
+              font-size: 18px
+              +font-icon( 'FontAwesome', $fontawesome-ok )
+
+            &:hover
+              background: #3c6
+
+              &:before
+                color: white

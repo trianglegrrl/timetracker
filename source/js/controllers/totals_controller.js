@@ -1,18 +1,36 @@
-ETT.TotalsController = Em.Controller.extend({
+ETT.TotalsController = Em.ArrayController.extend({
   needs: ['projects'],
+  content: Em.computed.alias('controllers.projects'),
 
-  projects: Em.computed.alias('controllers.projects'),
+  paidHours: function() {
+    return this._calculateTotalByProperty('paidHours');
+  }.property('@each.paidHours'),
 
-  paidHours: Em.computed.alias('projects.paidHours'),
+  unpaidHours: function() {
+    return this._calculateTotalByProperty('unpaidHours');
+  }.property('@each.unpaidHours'),
 
-  unpaidHours: Em.computed.alias('projects.unpaidHours'),
+  totalHours: function() {
+    return this._calculateTotalByProperty('totalHours');
+  }.property('@each.totalHours'),
 
-  totalHours: Em.computed.alias('projects.totalHours'),
+  paidDollars: function() {
+    return this._calculateTotalByProperty('paidDollars').toFixed(2);
+  }.property('@each.paidDollars'),
 
-  paidDollars: Em.computed.alias('projects.paidDollars'),
+  unpaidDollars: function() {
+    return this._calculateTotalByProperty('unpaidDollars').toFixed(2);
+  }.property('@each.unpaidDollars'),
 
-  unpaidDollars: Em.computed.alias('projects.unpaidDollars'),
+  totalDollars: function() {
+    return this._calculateTotalByProperty('totalDollars').toFixed(2);
+  }.property('@each.totalDollars'),
 
-  totalDollars: Em.computed.alias('projects.totalDollars')
+  _calculateTotalByProperty: function(property) {
+    var reducer = function(i, project, index, enumerable) {
+      return i + parseFloat(project.get(property));
+    };
+    return this.reduce(reducer, 0);
+  }
 
 });

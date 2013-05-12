@@ -1,8 +1,10 @@
 <header id='app-header'>
   <div class='wrapper'>
-    <h1>Ember Time Tracker</h1>
+    <h1>Ember Time Tracker {{#linkTo old}}Old{{/linkTo}}</h1>
     {{render totals}}
   </div>
 </header>
 
-{{outlet}}
+<section id='content'>
+  {{outlet}}
+</section>
