@@ -1,22 +1,24 @@
 <table id='time-entries-table'>
   <thead>
     <tr>
-      <th class='date'>Date</th>
       <th class='project'>Project</th>
-      <th class='hours'>Hrs</th>
-      <th class='dollars'>$</th>
-      <th class='notes'>Notes</th>
+      <th class='date'><span>Date</span></th>
+      <th class='hours'><span>Hrs</span></th>
+      <th class='dollars'><span>$</span></th>
+      <th class='description'>Description</th>
       <th class='paid'>Paid</th>
     </tr>
   </thead>
   <tbody>
     {{#each arrangedContent}}
       <tr {{bindAttr class='paid'}}>
+        <td class='project'>
+          {{#linkTo project project}}{{{project.name}}}{{/linkTo}}
+        </td>
         <td class='date'>{{{niceDate}}}</td>
-        <td class='project'>{{#linkTo project project}}{{{project.name}}}{{/linkTo}}</td>
         <td class='hours'>{{{hours}}}</td>
-        <td class='dollars'>{{{dollars}}}</td>
-        <td class='notes'>{{{notes}}}</td>
+        <td class='dollars'>{{{formatMoney dollars}}}</td>
+        <td class='description'>{{{description}}}</td>
         <td {{action togglePaid this}} {{bindAttr class=':paid paid:active'}}>
           {{#if paid}}
             <span>Paid</span>

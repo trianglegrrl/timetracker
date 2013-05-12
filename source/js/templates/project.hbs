@@ -1,4 +1,18 @@
 <header>
-  <h1>{{{name}}}</h1>
+  <h1><span>Project/ </span>{{{name}}}</h1>
+  <ul id='project-totals'>
+    <li class='unpaid'>
+      <span class='hours'>{{{unpaidHours}}}</span> 
+      <span class='dollars'>{{{formatMoney unpaidDollars}}}</span>
+    </li>
+    <li class='paid'>
+      <span class='hours'>{{{paidHours}}}</span> 
+      <span class='dollars'>{{{formatMoney paidDollars}}}</span>
+    </li>
+    <li class='total'>
+      <span class='hours'>{{{totalHours}}}</span> 
+      <span class='dollars'>{{{formatMoney totalDollars}}}</span>
+    </li>
+  </ul>
 </header>
 {{render timeEntries timeEntries}}

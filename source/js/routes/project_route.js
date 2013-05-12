@@ -8,12 +8,4 @@ ETT.ProjectRoute = Em.Route.extend({
     return { slug: project.get('slug') };
   },
 
-  setupController: function(controller, model) {
-    this.controllerFor('projects').set('content', [model]);
-  }
-
-  // setupController: function(controller, model) {
-  //   this.controllerFor('projects').set('content', @controller.);
-  // }
-
 });

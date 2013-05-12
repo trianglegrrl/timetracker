@@ -25,6 +25,12 @@
       weight: 500
     color: #222
 
+    a
+      color: #222
+
+      &:hover
+        color: $blue
+
     &:before
       margin-right: 6px
       +font-icon( 'FontAwesome', $fontawesome-time )
@@ -63,10 +69,10 @@
         font-weight: 100
 
       &.unpaid
-        background: #c33
+        background: $red
 
       &.paid
-        background: #3c6
+        background: $green
 
       &.total
-        background: #39c
+        background: $blue

@@ -51,12 +51,12 @@ var preloadData = function() {
 
   for ( var i = 0; i <= 39; i++ ) {
     var timeEntry = {
-      id:         i+1,
-      date:       timeEntryDates[i].toString(),
-      project_id: (i < 10) ? 1 : parseInt( i.toString().charAt(0) ) + 1,
-      hours:      Math.floor((Math.random()*10)+1),
-      notes:      timeEntryNotes[ Math.floor( Math.random() * timeEntryNotes.length ) ],
-      paid:       Math.floor((Math.random()*39)+1) == i
+      id:           i+1,
+      date:         timeEntryDates[i].toString(),
+      project_id:   (i < 10) ? 1 : parseInt( i.toString().charAt(0) ) + 1,
+      hours:        Math.floor((Math.random()*10)+1),
+      description:  timeEntryNotes[ Math.floor( Math.random() * timeEntryNotes.length ) ],
+      paid:         Math.floor((Math.random()*39)+1) == i
     };
 
     window.PRELOADS.time_entries.push(timeEntry);

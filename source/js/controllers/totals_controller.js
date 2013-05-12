@@ -1,4 +1,5 @@
 ETT.TotalsController = Em.ArrayController.extend({
+
   needs: ['projects'],
   content: Em.computed.alias('controllers.projects'),
 
@@ -15,15 +16,15 @@ ETT.TotalsController = Em.ArrayController.extend({
   }.property('@each.totalHours'),
 
   paidDollars: function() {
-    return this._calculateTotalByProperty('paidDollars').toFixed(2);
+    return this._calculateTotalByProperty('paidDollars');
   }.property('@each.paidDollars'),
 
   unpaidDollars: function() {
-    return this._calculateTotalByProperty('unpaidDollars').toFixed(2);
+    return this._calculateTotalByProperty('unpaidDollars');
   }.property('@each.unpaidDollars'),
 
   totalDollars: function() {
-    return this._calculateTotalByProperty('totalDollars').toFixed(2);
+    return this._calculateTotalByProperty('totalDollars');
   }.property('@each.totalDollars'),
 
   _calculateTotalByProperty: function(property) {
@@ -31,6 +32,6 @@ ETT.TotalsController = Em.ArrayController.extend({
       return i + parseFloat(project.get(property));
     };
     return this.reduce(reducer, 0);
-  }
+  },
 
 });

@@ -6,83 +6,53 @@
   overflow: hidden
   +border-radius(5px)
 
-  #time-entries-table
-    table-layout: fixed
-    width: 100%
-    border-collapse: collapse
+  header
+    padding: $gutter
 
-    th, td
-      padding: $gutter
-      border: 1px solid #eee
-      vertical-align: top
+    h1
+      display: inline-block
+      margin: 0
+      font:
+        size: 36px
+        weight: 500
 
-      &.date
-        width: $twelfth + $gutter
+      span
+        font-weight: 100
+        color: #999
+        display: inline-block
 
-      &.project
-        width: $sixth
-    
-      &.hours
-        width: $column
+    #project-totals
+      float: right
+      padding: 0
+      margin: 0
 
-      &.dollars
-        width: $twelfth + $gutter
+      li
+        display: inline-block
+        margin: 0 -2px
+        padding: 12px
+          top: 16px
+        font-size: 18px
 
-      &.paid
-        width: $twelfth
-        padding: $gutter 0
-        color: darken(#3c6, 10%)
+        &.unpaid
+          color: $red
 
-    tbody
-      td
-        &.project,
-        &.hours,
         &.paid
-          text-align: center
+          color: $green
 
-        &.dollars
-          text-align: right
+        &.total
+          color: $blue
 
-        &.dollars
+        span
+          display: inline-block
+          margin-left: 6px
+
           &:before
-            content: '$'
-            display: inline-block
+            font-weight: 100
             margin-right: 4px
-            float: left
-            color: #999
 
-        &.paid
-          cursor: pointer
-          color: darken(#3c6, 10%)
-          background: rgba(#3c6, 0.1)
-
-          &:hover
-            background: #3c6
-            color: white
-            
-          span
-            display: none
-
-
-      tr
-        &.paid td
-          background: rgba(#3c6, 0.05)
-          color: darken(#3c6, 10%)
-          border-color: rgba(#3c6, 0.1)
+          &.hours:before
+            +font-icon( 'FontAwesome', $fontawesome-time )
 
           &.dollars:before
-            color: rgba(darken(#3c6, 10%), 0.3)
-
-          &.paid
-            background: rgba(#3c6, 0.2)
-
-            &:before
-              color: darken(#3c6, 10%)
-              font-size: 18px
-              +font-icon( 'FontAwesome', $fontawesome-ok )
-
-            &:hover
-              background: #3c6
-
-              &:before
-                color: white
+            content: '$'
+            display: inline-block

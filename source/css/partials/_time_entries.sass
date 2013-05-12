@@ -1,0 +1,110 @@
+#time-entries-table
+  table-layout: fixed
+  width: 100%
+  border-collapse: collapse
+
+  th, td
+    padding: $gutter
+    border: 1px solid #eee
+    vertical-align: top
+
+    &.date
+      width: $twelfth + $gutter
+
+    &.project
+      width: $sixth
+  
+    &.hours
+      width: $column
+
+    &.dollars
+      width: $twelfth + $gutter
+
+    &.paid
+      width: $twelfth
+      padding: $gutter 0
+      color: darken($green, 10%)
+
+  thead th
+    overflow: hidden
+    font-weight: 500
+
+    span
+      display: none
+
+    &:before
+      font-size: 18px
+
+    &.date:before
+      +font-icon( 'FontAwesome', $fontawesome-calendar )
+
+    &.hours:before
+      +font-icon( 'FontAwesome', $fontawesome-time )
+
+    &.dollars:before
+      +font-icon( 'FontAwesome', $fontawesome-money )
+
+  tbody
+    td
+      &.project,
+      &.hours,
+      &.paid
+        text-align: center
+
+      &.project a
+        display: block
+        margin: -$gutter
+        padding: $gutter
+
+      &.dollars
+        text-align: right
+
+      &.dollars
+        &:before
+          content: '$'
+          display: inline-block
+          margin-right: 4px
+          float: left
+          color: #999
+
+      &.paid
+        cursor: pointer
+        color: darken($green, 10%)
+        background: rgba($green, 0.1)
+
+        &:hover
+          background: $green
+          color: white
+          
+        span
+          display: none
+
+
+    tr
+      &.paid td
+        background: rgba($green, 0.05)
+        color: darken($green, 10%)
+        border-color: rgba($green, 0.1)
+
+        a
+          color: $green
+
+          &:hover
+            color: lighten($green, 10%)
+
+        &.dollars:before
+          color: rgba(darken($green, 10%), 0.3)
+
+        &.paid
+          background: rgba($green, 0.2)
+
+          &:before
+            color: darken($green, 10%)
+            font-size: 18px
+            +font-icon( 'FontAwesome', $fontawesome-ok )
+
+          &:hover
+            background: $green
+
+            &:before
+              color: white

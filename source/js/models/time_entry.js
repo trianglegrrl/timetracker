@@ -1,9 +1,9 @@
 ETT.TimeEntry = DS.Model.extend({
-  project:  DS.belongsTo('ETT.Project'),
-  notes:    DS.attr('string'),
-  date:     DS.attr('date'),
-  hours:    DS.attr('number'),
-  paid:     DS.attr('boolean'),
+  project:      DS.belongsTo('ETT.Project'),
+  description:  DS.attr('string'),
+  date:         DS.attr('date'),
+  hours:        DS.attr('number'),
+  paid:         DS.attr('boolean'),
 
   niceDate: function() {
     var date = this.get('date');
@@ -13,7 +13,7 @@ ETT.TimeEntry = DS.Model.extend({
   }.property('date'),
 
   dollars: function() {
-    return ( this.get('hours') * this.get('project.rate') ).toFixed(2);
+    return this.get('hours') * this.get('project.rate');
   }.property('hours', 'project.rate')
 
 });
