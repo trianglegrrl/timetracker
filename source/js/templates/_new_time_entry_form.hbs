@@ -1,0 +1,39 @@
+<section id='new-time-entry-form' {{bindAttr class='isProject'}}>
+  <fieldset >
+    <ol>
+
+      {{#unless isProject}}
+        <li class='project'>
+          <label for='project-select-field'>Project</label>
+          <select id='project-select-field' tabindex='1'>
+            <option selected>-- Project --</option>
+            {{#each projects}}
+              <option value='{{{unbound id}}}'>{{{unbound name}}}</option>
+            {{/each}}
+            <option>- New Project -</option>
+          </select>
+        </li>
+      {{/unless}}
+
+      <li class='date'>
+        <label for='date-field'>Date</label>
+        <input id='date-field' type='date' placeholder='YYYY-MM-DD' tabindex='2' />
+      </li>
+
+      <li class='hours'>
+        <label for='hours-field'>Hours</label>
+        <input id='hours-field' type='number' min='0.5' max='12' step='0.5' placeholder='Hours' tabindex='3' />
+      </li>
+
+      <li class='description'>
+        <label for='description-field'>Description</label>
+        <textarea id='description-field' placeholder='Description...' tabindex='4' rows='1'></textarea>
+      </li>
+
+      <li class='submit'>
+        <button id='submit-entry' type='submit'><span>Submit</span></button>
+      </li>
+
+    </ol>
+  </fieldset>
+</section>

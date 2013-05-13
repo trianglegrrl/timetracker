@@ -1,7 +1,9 @@
 ETT.TimeEntriesController = Em.ArrayController.extend({
-  needs: ['project'],
+  needs: ['project', 'projects'],
   sortProperties: ['date'],
   sortAscending: false,
+
+  projects: Em.computed.alias('controllers.projects'),
 
   // Detect whether the project controller is set
   isProject: function() {
@@ -9,8 +11,7 @@ ETT.TimeEntriesController = Em.ArrayController.extend({
   }.property('controllers.project.name'),
 
   addEntry: function(entryObject) {
-    var entry = ETT.TimeEntry.createRecord(entryObject);
-    this.pushObject(entry);
+    this.pushObject(entryObject);
   },
 
   togglePaid: function(entry) {
