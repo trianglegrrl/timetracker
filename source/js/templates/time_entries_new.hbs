@@ -48,12 +48,8 @@
       </li>
 
       <li class='submit'>
-        {{#view ETT.NewEntryButton
-                id='submit-entry'
-                type='submit'
-                tabindex='5' }}
-          <span>Submit</span>
-        {{/view}}
+        <button {{action saveNewEntry}} {{bindAttr disabled='isInvalid'}}
+          id='submit-entry' type='submit' tabindex='5' alt='submit'></button>
       </li>
     </ol>
   </fieldset>

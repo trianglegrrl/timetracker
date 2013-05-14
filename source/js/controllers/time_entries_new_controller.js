@@ -34,16 +34,15 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
     }
   },
 
-  validateNewEntry: function() {
-    // Ensure all properties are present
-    if (Em.isEmpty(this.get('project')) ||
-        Em.isEmpty(this.get('date'))    ||
-        Em.isEmpty(this.get('hours'))   ||
-        Em.isEmpty(this.get('description'))) {
-      this.set('isValid', false);
-    // Pass validation
-    } else {
-      this.set('isValid', true);
-    }
-  }.observes('project', 'date', 'hours', 'description')
+  isValid: function() {
+    return !( Em.isEmpty( this.get('project') ) ||
+              Em.isEmpty( this.get('date') )    ||
+              Em.isEmpty( this.get('hours') )   ||
+              Em.isEmpty( this.get('description') ) );
+  }.property( 'project', 'date', 'hours', 'description' ),
+
+  isInvalid: Em.computed.not( 'isValid' ),
+
+  projectEmpty: Em.computed.empty( 'project' )
+
 });
