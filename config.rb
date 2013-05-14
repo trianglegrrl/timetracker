@@ -21,6 +21,6 @@ configure :build do
 end
 
 # Project Routes #### Needs better solution
-["embergarten", "throne-of-js", "tecnologic", "rpn"].each do |project|
+["embergarten", "throne-of-js", "tecnologic", "rpn", "time_entries"].each do |project|
   proxy "/project/#{project}", "index.html"
 end

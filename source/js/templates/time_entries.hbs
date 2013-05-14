@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each arrangedContent}}
+    {{#each arrangedContent itemController='timeEntry'}}
       <tr {{bindAttr class='paid'}}>
         <td class='project'>
           {{#linkTo project project}}{{{project.name}}}{{/linkTo}}
@@ -21,7 +21,7 @@
         <td class='hours'>{{{hours}}}</td>
         <td class='dollars'>{{{formatMoney dollars}}}</td>
         <td class='description'>{{{description}}}</td>
-        <td {{action togglePaid this}} {{bindAttr class=':paid paid:active'}}>
+        <td {{action toggleProperty 'paid'}} {{bindAttr class=':paid paid:active'}}>
           {{#if paid}}
             <span>Paid</span>
           {{/if}}

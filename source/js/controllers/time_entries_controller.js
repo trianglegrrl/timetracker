@@ -13,9 +13,5 @@ ETT.TimeEntriesController = Em.ArrayController.extend({
   addEntry: function(entryObject) {
     this.pushObject(entryObject);
   },
-
-  togglePaid: function(entry) {
-    entry.toggleProperty('paid');
-  },
   
 });
