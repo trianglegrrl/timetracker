@@ -12,9 +12,6 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
   createNewEntry: function() {
     this.transaction = this.get('store').transaction();
     this.set( 'content', this.transaction.createRecord(ETT.TimeEntry, {}) );
-    if ( !this.get( 'isIndex' ) ) {
-      this.set( 'project', this.get('controllers.project.content') );
-    }
   },
 
   // Commit + clear current transaction
