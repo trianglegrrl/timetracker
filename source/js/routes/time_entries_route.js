@@ -4,8 +4,13 @@ ETT.TimeEntriesRoute = Em.Route.extend({
     return ETT.TimeEntry.find();
   },
 
-  setupController: function() {
-    this.controllerFor( 'project' ).set( 'content', null );
+  renderTemplate: function(controller, model) {
+    controller.set( 'isIndex', true );
+    this.render( 'time_entries' );
+  },
+
+  deactivate: function() {
+    this.controller.set( 'isIndex', false );
   },
 
 });

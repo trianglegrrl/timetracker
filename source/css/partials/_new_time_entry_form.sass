@@ -51,14 +51,17 @@
       textarea
         padding: 2px 6px
         line-height: 1.5
-        width: $fourth + $gutter + $sixth + $gutter + $column - 12
+        width: $half + $gutter + $twelfth + $gutter + $column - 12
 
       button
         height: 30px
-        padding: 6px 16px
+        padding: 6px $gutter
         line-height: 1
         background: darken($green, 10%)
         color: white
+
+        &[disabled]
+          background: #eee
 
         span
           display: none
@@ -66,10 +69,10 @@
         &:before
           +font-icon( 'FontAwesome', $fontawesome-level-down )
 
-  &.is-project
+  &.is-index
     fieldset ol li
       textarea
-        width: $half + $gutter + $twelfth + $gutter + $column - 12
+        width: $fourth + $gutter + $sixth + $gutter + $column - 12
 
       button
-        padding: 6px $gutter
+        padding: 6px 16px

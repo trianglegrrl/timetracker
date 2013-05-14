@@ -9,7 +9,9 @@ ETT.ProjectRoute = Em.Route.extend({
   },
 
   renderTemplate: function(controller, project) {
-    if (project != null) {
+    this.controllerFor( 'time_entries.new' ).set( 'project', project );
+
+    if ( !Em.isEmpty( project ) ) {
       this.render( 'project' );
     } else {
       this.render( 'project_404' );

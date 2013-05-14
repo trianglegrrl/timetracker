@@ -1,6 +1,6 @@
 var formatMoney = function(number, places, symbol, thousand, decimal)
 {
-  if (number == null) { return; };
+  if ( Em.isEmpty( number ) ) { return; };
   number = isNaN(number) ? 0 : number;
   places = !isNaN(places = Math.abs(places)) ? places : 2;
   symbol = symbol || '';

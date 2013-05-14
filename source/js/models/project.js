@@ -6,16 +6,18 @@ ETT.Project = DS.Model.extend({
 
   paidHours: function() {
     var reducer = function(i, timeEntry, index, enumerable) {
-      if (timeEntry.get('paid') === false) { return i; }
-      return i + parseFloat(timeEntry.get('hours'));
+      if ( timeEntry.get( 'isNew' ) || timeEntry.get('paid') === false ) { return i; }
+      var hours = timeEntry.get('hours');
+      return i + parseFloat( Em.isEmpty( hours ) ? 0 : hours );
     };
     return this.get('timeEntries').reduce(reducer, 0);
   }.property('timeEntries.@each.hours', 'timeEntries.@each.paid'),
 
   unpaidHours: function() {
     var reducer = function(i, timeEntry, index, enumerable) {
-      if (timeEntry.get('paid') === true) { return i; }
-      return i + parseFloat(timeEntry.get('hours'));
+      if ( timeEntry.get( 'isNew' ) || timeEntry.get('paid') === true ) { return i; }
+      var hours = timeEntry.get('hours');
+      return i + parseFloat( Em.isEmpty( hours ) ? 0 : hours );
     };
     return this.get('timeEntries').reduce(reducer, 0);
   }.property('timeEntries.@each.hours', 'timeEntries.@each.paid'),

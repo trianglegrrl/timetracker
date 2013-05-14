@@ -1,11 +1,11 @@
-{{partial new_time_entry_form}}
+{{render timeEntriesNew}}
 
-<table id='time-entries-table' {{bindAttr class='isProject'}}>
+<table id='time-entries-table' {{bindAttr class='isIndex'}}>
   <thead>
     <tr>
-      {{#unless isProject}}
+      {{#if isIndex}}
         <th class='project'>Project</th>
-      {{/unless}}
+      {{/if}}
       <th class='date'><span>Date</span></th>
       <th class='hours'><span>Hrs</span></th>
       <th class='dollars'><span>$</span></th>
