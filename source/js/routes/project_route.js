@@ -13,6 +13,7 @@ ETT.ProjectRoute = Em.Route.extend({
 
     if ( !Em.isEmpty( project ) ) {
       this.render( 'project' );
+      $('html, body').animate({ scrollTop: 0 }, 'fast');
     } else {
       this.render( 'project_404' );
     }
