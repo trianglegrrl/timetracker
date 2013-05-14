@@ -38,6 +38,13 @@
         border: 1px solid #ddd
         +border-radius( 5px )
 
+        &:focus
+          border-color: $green
+
+        &[disabled]
+          background: #f3f3f3
+          color: #bbb
+
       select
         font-size: 16px
         width: $sixth + $gutter
@@ -60,8 +67,12 @@
         background: darken($green, 10%)
         color: white
 
+        &:hover,
+        &:focus
+          background: $green
+
         &[disabled]
-          background: #eee
+          background: #ccc
 
         span
           display: none
