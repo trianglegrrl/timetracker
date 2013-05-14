@@ -1,0 +1,14 @@
+<tr {{bindAttr class='paid'}}>
+  <td class='project'>
+    {{#linkTo project project}}{{{project.name}}}{{/linkTo}}
+  </td>
+  <td class='date'>{{{formatDate date}}}</td>
+  <td class='hours'>{{{hours}}}</td>
+  <td class='dollars'>{{{formatMoney dollars}}}</td>
+  <td class='description'>{{{description}}}</td>
+  <td {{action toggleProperty 'paid'}} {{bindAttr class=':paid paid:active'}}>
+    {{#if paid}}
+      <span>Paid</span>
+    {{/if}}
+  </td>
+</tr>

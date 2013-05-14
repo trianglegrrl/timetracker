@@ -15,11 +15,28 @@
       font:
         size: 36px
         weight: 500
+      line-height: 1
+
+      a, span
+        font-weight: 100
+
+      a
+        &:before
+          position: relative
+          font-size: 18px
+          top: -12px
+          color: white
+          margin:
+            left: -12px
+            right: 4px
+          +font-icon( 'FontAwesome', $fontawesome-level-up )
+          +flip-horizontal
+
+        &:hover:before
+          color: $blue
 
       span
-        font-weight: 100
-        color: #999
-        display: inline-block
+        color: #ccc
 
     #project-totals
       float: right
@@ -28,9 +45,8 @@
 
       li
         display: inline-block
-        margin: 0 -2px
-        padding: 12px
-          top: 16px
+        margin: 0 -2px 0 $gutter
+        padding: 12px 0
         font-size: 18px
 
         &.unpaid
@@ -44,7 +60,7 @@
 
         span
           display: inline-block
-          margin-left: 6px
+          margin-left: 4px
 
           &:before
             font-weight: 100
@@ -55,4 +71,4 @@
 
           &.dollars:before
             content: '$'
-            display: inline-block
+            display: inline-block    

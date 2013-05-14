@@ -2,8 +2,8 @@
 //= require "handlebars"
 //= require "ember"
 //= require "ember-data"
-//= require "format-money"
 //= require_self
+//= require_tree ./helpers
 //= require_tree ./templates
 //= require_tree ./models
 //= require_tree ./controllers
@@ -17,8 +17,3 @@
 window.ETT = Ember.Application.create({
   LOG_TRANSITIONS: true // Log routing transitions
 })
-
-// Custom Handlebars helper for formatting money
-Em.Handlebars.registerBoundHelper('formatMoney', function(num) {
-  return num.formatMoney();
-});

@@ -5,7 +5,6 @@ ETT.TimeEntriesRoute = Em.Route.extend({
   },
 
   setupController: function() {
-    this.controllerFor( 'projects' ).set( 'content', ETT.Project.find() );
     this.controllerFor( 'project' ).set( 'content', null );
   },
 
