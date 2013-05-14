@@ -17,16 +17,17 @@
 
       <li class='date'>
         <label for='date-field'>Date</label>
-        {{view ETT.NewEntryInputField
-                type='date'
-                valueBinding='date'
-                id='date-field'
-                tabindex='2' }}
+        {{input
+            type='date'
+            value=date
+            id='date-field'
+            tabindex='2'
+            disabled=projectEmpty }}
       </li>
 
       <li class='hours'>
         <label for='hours-field'>Hours</label>
-        {{view ETT.NewEntryInputField
+        {{view ETT.InputNumber
                 valueBinding='hours'
                 type='number'
                 id='hours-field'
@@ -34,17 +35,19 @@
                 max='12'
                 step='0.5'
                 placeholder='Hours'
-                tabindex='3' }}
+                tabindex='3'
+                disabledBinding='projectEmpty' }}
       </li>
 
       <li class='description'>
         <label for='description-field'>Description</label>
-        {{view ETT.NewEntryDescriptionTextArea
-                valueBinding='description'
-                id='description-field'
-                placeholder='Description...'
-                tabindex='4'
-                rows='1' }}
+        {{textarea
+            value=description
+            id='description-field'
+            placeholder='Description...'
+            tabindex='4'
+            disabled=projectEmpty
+            rows='1' }}
       </li>
 
       <li class='submit'>

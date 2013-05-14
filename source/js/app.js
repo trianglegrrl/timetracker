@@ -1,7 +1,3 @@
-//= require "jquery"
-//= require "handlebars"
-//= require "ember"
-//= require "ember-data"
 //= require_self
 //= require_tree ./helpers
 //= require_tree ./templates
