@@ -3,7 +3,9 @@
 <table id='time-entries-table' {{bindAttr class='isProject'}}>
   <thead>
     <tr>
-      <th class='project'>Project</th>
+      {{#unless isProject}}
+        <th class='project'>Project</th>
+      {{/unless}}
       <th class='date'><span>Date</span></th>
       <th class='hours'><span>Hrs</span></th>
       <th class='dollars'><span>$</span></th>

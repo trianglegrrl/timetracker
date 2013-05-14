@@ -1,7 +1,9 @@
 <tr {{bindAttr class='paid'}}>
-  <td class='project'>
-    {{#linkTo project project}}{{{project.name}}}{{/linkTo}}
-  </td>
+  {{#unless isProject}}
+    <td class='project'>
+      {{#linkTo project project}}{{{project.name}}}{{/linkTo}}
+    </td>
+  {{/unless}}
   <td class='date'>{{{formatDate date}}}</td>
   <td class='hours'>{{{hours}}}</td>
   <td class='dollars'>{{{formatMoney dollars}}}</td>
