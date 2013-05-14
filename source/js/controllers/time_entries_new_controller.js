@@ -11,7 +11,7 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
   // Creates transaction + new TimeEntry
   createNewEntry: function() {
     this.transaction = this.get('store').transaction();
-    this.set( 'content', this.transaction.createRecord(ETT.TimeEntry) );
+    this.set( 'content', this.transaction.createRecord(ETT.TimeEntry, {}) );
     if ( !this.get( 'isIndex' ) ) {
       this.set( 'project', this.get('controllers.project.content') );
     }
@@ -19,6 +19,7 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
 
   // Commit + clear current transaction
   saveNewEntry: function() {
+    // Create Date object
     var date = this.get( 'date' );
     if ( typeof date === 'string') {
       date = date.split('-');
@@ -26,7 +27,6 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
       this.set( 'content.date', date );
     }
     this.transaction.commit();
-    this.createNewEntry();
   },
 
   // Cancels the new TimeEntry creation process
@@ -50,8 +50,4 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
     }
   }.observes( 'project', 'date', 'hours', 'description' ),
   
-  didChangeContext: function() {
-    this.cancelNewEntry();
-  }.observes( 'isIndex' ),
-
 })
