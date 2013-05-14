@@ -10,7 +10,7 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
 
   // Creates transaction + new TimeEntry
   createNewEntry: function() {
-    this.transaction = this.get('store').transaction();
+    this.transaction = this.transaction || this.get('store').transaction();
     this.set( 'content', this.transaction.createRecord(ETT.TimeEntry, {}) );
   },
 
@@ -24,6 +24,7 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
       this.set( 'content.date', date );
     }
     this.transaction.commit();
+    this.createNewEntry();
   },
 
   // Cancels the new TimeEntry creation process
