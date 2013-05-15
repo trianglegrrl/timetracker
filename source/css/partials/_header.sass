@@ -35,6 +35,21 @@
       margin-right: 6px
       +font-icon( 'FontAwesome', $fontawesome-time )
 
+  h2
+    display: inline-block
+    margin: 0
+    padding: 0 0 0 20px
+    font:
+      size: 16px
+      weight: 500
+    color: #222
+
+    a
+      color: #222
+
+      &:hover
+        color: $blue
+
   #totals
     display: block
     padding: 0
@@ -53,10 +68,12 @@
       min-width: $twelfth
 
       h2
+        display: block
         font:
           size: 14px
           weight: 300
         text-transform: uppercase
+        padding: 0
         margin: 0 0 2px
         line-height: 1
 
