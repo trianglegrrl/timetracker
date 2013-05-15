@@ -16,6 +16,21 @@
   </ul>
 </header>
 
-{{#if timeEntries}}
-  {{render timeEntries timeEntries}}
-{{/if}}
+{{render timeEntriesNew}}
+
+<table id='time-entries-table'>
+  <thead>
+    <tr>
+      <th class='date'><span>Date</span></th>
+      <th class='hours'><span>Hrs</span></th>
+      <th class='dollars'><span>$</span></th>
+      <th class='description'>Description</th>
+      <th class='paid'>Paid</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each timeEntries itemController='timeEntry'}}
+      {{partial 'time_entry'}}
+    {{/each}}
+  </tbody>
+</table>
