@@ -37,7 +37,7 @@
   </thead>
   <tbody>
     {{log timeEntries}}
-    {{#each timeEntries}}
+    {{#each timeEntries itemController="timeEntry"}}
       <tr {{bindAttr class='paid'}}>
         <td class='date'>{{formatDate date}}</td>
         <td class='hours'>{{hours}}</td>
