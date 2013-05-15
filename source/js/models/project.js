@@ -2,7 +2,7 @@ ETT.Project = DS.Model.extend({
   timeEntries:  DS.hasMany('ETT.TimeEntry'),
   name:         DS.attr('string'),
   rate:         DS.attr('number'),
-  //budget:       DS.attr('budget'),
+  budget:       DS.attr('number'),
   slug:         DS.attr('string'),
 
   paidHours: function() {
