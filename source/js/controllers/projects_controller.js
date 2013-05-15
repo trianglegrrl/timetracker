@@ -29,6 +29,6 @@ ETT.ProjectsController = Em.ArrayController.extend({
       return i + parseFloat(project.get(property));
     };
     return this.reduce(reducer, 0);
-  },
-  
+  }
+
 });
