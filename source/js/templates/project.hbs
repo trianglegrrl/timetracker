@@ -29,8 +29,18 @@
     </tr>
   </thead>
   <tbody>
-    {{#each timeEntries itemController='timeEntry'}}
-      {{partial 'time_entry'}}
+    {{#each timeEntries}}
+      <tr {{bindAttr class='paid'}}>
+        <td class='date'>{{formatDate date}}</td>
+        <td class='hours'>{{hours}}</td>
+        <td class='dollars'>{{formatMoney dollars}}</td>
+        <td class='description'>{{description}}</td>
+        <td {{action toggleProperty 'paid'}} {{bindAttr class=':paid paid:active'}}>
+          {{#if paid}}
+            <span>Paid</span>
+          {{/if}}
+        </td>
+      </tr>
     {{/each}}
   </tbody>
 </table>

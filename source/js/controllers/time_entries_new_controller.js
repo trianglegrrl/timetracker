@@ -46,6 +46,6 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
     } else {
       this.set( 'isValid', true );
     }
-  }.observes( 'project', 'date', 'hours', 'description' ),
-  
-})
+  }.observes( 'project', 'date', 'hours', 'description' )
+
+});

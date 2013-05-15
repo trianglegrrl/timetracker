@@ -1,11 +1,9 @@
 {{render timeEntriesNew}}
 
-<table id='time-entries-table' {{bindAttr class='isIndex'}}>
+<table id='time-entries-table'}}>
   <thead>
     <tr>
-      {{#if isIndex}}
-        <th class='project'>Project</th>
-      {{/if}}
+      <th class='project'>Project</th>
       <th class='date'><span>Date</span></th>
       <th class='hours'><span>Hrs</span></th>
       <th class='dollars'><span>$</span></th>
@@ -14,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each controller itemController='timeEntry'}}
+    {{#each controller}}
       {{partial 'time_entry'}}
     {{/each}}
   </tbody>
