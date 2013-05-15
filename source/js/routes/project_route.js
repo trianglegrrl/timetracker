@@ -1,13 +1,5 @@
 ETT.ProjectRoute = Em.Route.extend({
 
-  model: function(params) {
-    return this.modelFor('projects').findProperty( 'slug', params.slug );
-  },
-
-  serialize: function(project) {
-    return { slug: project.get('slug') };
-  },
-
   renderTemplate: function(controller, project) {
     this.controllerFor( 'time_entries.new' ).set( 'project', project );
 
