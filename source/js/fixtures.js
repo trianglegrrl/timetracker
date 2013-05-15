@@ -63,4 +63,4 @@ var preloadData = function() {
   };
 };
 
-preloadData()
+preloadData();
