@@ -11,6 +11,10 @@ ETT.TimeEntriesRoute = Em.Route.extend({
     $('html, body').animate({ scrollTop: 0 }, 'fast');
   },
 
+  setupController: function(controller) {
+    this.controllerFor('projects').set('content', ETT.Project.find());
+  },
+
   deactivate: function() {
     this.controller.set( 'isIndex', false );
   },
