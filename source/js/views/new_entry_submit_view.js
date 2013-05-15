@@ -7,9 +7,6 @@ ETT.NewEntryButton = Em.View.extend({
   }.property( 'context.isValid' ),
 
   click: function() {
-    if ( this.get('disabled') ) {
-      return;
-    };
     this.get('context').send( 'saveNewEntry' );
   }
 
