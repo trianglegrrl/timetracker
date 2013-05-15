@@ -29,6 +29,7 @@
     </tr>
   </thead>
   <tbody>
+    {{log timeEntries}}
     {{#each timeEntries}}
       <tr {{bindAttr class='paid'}}>
         <td class='date'>{{formatDate date}}</td>
