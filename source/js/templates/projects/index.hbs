@@ -9,7 +9,9 @@
   <tbody>
     {{#each content}}
     <tr>
-      <td class='name'>{{name}}</td>
+      <td class='name'>
+        {{#linkTo project this}} {{name}} {{/linkTo}}
+      </td>
       <td class='rate'>{{rate}}</td>
       <td class='budget'>{{budget}}</td>
     </tr>
