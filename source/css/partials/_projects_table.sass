@@ -1,0 +1,56 @@
+#projects-table
+  table-layout: fixed
+  width: 100%
+  border-collapse: collapse
+
+  th, td
+    padding: $gutter
+    border: 1px solid #eee
+    vertical-align: top
+
+    &.name
+      width: $sixth
+
+    &.rate
+      width: $column
+
+    &.budget
+      width: $column
+
+  thead th
+    overflow: hidden
+    font-weight: 500
+
+    span
+      display: none
+
+    &:before
+      font-size: 18px
+      margin:
+        right: 10px
+
+    &.rate:before
+      +font-icon( 'FontAwesome', $fontawesome-time )
+
+    &.budget:before
+      +font-icon( 'FontAwesome', $fontawesome-money )
+
+  tbody
+    td
+      &.project,
+      &.rate,
+      &.budget
+        text-align: center
+
+      &.project a
+        display: block
+        margin: -$gutter
+        padding: $gutter
+
+      &.budget, &.rate
+        &:before
+          content: '$'
+          display: inline-block
+          margin-right: 4px
+          float: left
+          color: #999

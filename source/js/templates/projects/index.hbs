@@ -1,4 +1,4 @@
-<table id='time-entries-table'}}>
+<table id='projects-table'}}>
   <thead>
     <tr>
       <th class='name'>Name</th>
@@ -9,9 +9,9 @@
   <tbody>
     {{#each content}}
     <tr>
-      <td>{{name}}</td>
-      <td>{{rate}}</td>
-      <td>{{budget}}</td>
+      <td class='name'>{{name}}</td>
+      <td class='rate'>{{rate}}</td>
+      <td class='budget'>{{budget}}</td>
     </tr>
     {{/each}}
   </tbody>
