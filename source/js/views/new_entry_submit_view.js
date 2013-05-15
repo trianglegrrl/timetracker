@@ -8,10 +8,9 @@ ETT.NewEntryButton = Em.View.extend({
 
   click: function() {
     if ( this.get('disabled') ) {
-      alert( 'All fields are required' );
       return;
     };
     this.get('context').send( 'saveNewEntry' );
-  },
+  }
 
 });
