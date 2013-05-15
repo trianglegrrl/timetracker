@@ -14,14 +14,14 @@
       <span class='dollars'>{{formatMoney totalDollars}}</span>
     </li>
   </ul>
+
+  <div id="project-details">
+    <h2>Project Rate: <span class='hours'> {{rate}}</span></h2>
+    <h2>Project Budget: <span class='dollars'>{{budget}}</span></h2>
+  </div>
+
 </header>
 
-<section class="project-details">
-<ul>
-  <li> Project Rate: {{rate}} </li>
-  <li> Project Budget: {{budget}}$ </li>
-</ul>
-</section>
 
 {{render timeEntriesNew}}
 
@@ -36,7 +36,6 @@
     </tr>
   </thead>
   <tbody>
-    {{log timeEntries}}
     {{#each timeEntries itemController="timeEntry"}}
       <tr {{bindAttr class='paid'}}>
         <td class='date'>{{formatDate date}}</td>

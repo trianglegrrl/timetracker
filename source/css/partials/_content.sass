@@ -38,15 +38,27 @@
       span
         color: #ccc
 
+    #project-details
+      h2
+        font-size: 14px
+        font-weight: bold
+
+        span.hours:before
+          +font-icon( 'FontAwesome', $fontawesome-time )
+
+        span.dollars:before
+          content: '$'
+          display: inline-block    
+
     #project-totals
       float: right
       padding: 0
       margin: 0
 
       li
-        display: inline-block
+        display: block
         margin: 0 -2px 0 $gutter
-        padding: 12px 0
+        padding: 5px 0
         font-size: 18px
 
         &.unpaid
