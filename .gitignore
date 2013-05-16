@@ -19,5 +19,4 @@ _yardoc
 doc/
 
 # Ignore Vagrant files
-Vagrantfile
 .vagrant

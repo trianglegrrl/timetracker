@@ -5,7 +5,7 @@ set :css_dir, "css"
 set :js_dir, "js"
 set :images_dir, "images"
 set :fonts_dir, "fonts"
-# set :layout, nil
+set :layout, nil
 sprockets.append_path "#{root}/vendor/javascripts/"
 #set :css_assets_paths, ["#{root}/vendor/stylesheets/"]
 
