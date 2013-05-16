@@ -1,6 +1,9 @@
 ETT.TimeEntriesRoute = Em.Route.extend({
   model: function(params) {
-    return ETT.TimeEntry.find();
+    ETT.TimeEntry.find(); // Load dem thangs
+    return ETT.TimeEntry.filter(function(timeEntry) {
+      return timeEntry.get('id') ? true : false;
+    });
   },
 
   renderTemplate: function(controller, model) {
