@@ -1,7 +1,6 @@
 ETT.TimeEntriesNewController = Em.ObjectController.extend({
   needs: ['timeEntries', 'projects', 'project'],
   isIndex: Em.computed.alias('controllers.timeEntries.isIndex'),
-  isValid: false,
 
   init: function() {
     this._super();
@@ -35,14 +34,13 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
   },
 
   isValid: function() {
-    return !( Em.isEmpty( this.get('project') ) ||
-              Em.isEmpty( this.get('date') )    ||
-              Em.isEmpty( this.get('hours') )   ||
-              Em.isEmpty( this.get('description') ) );
-  }.property( 'project', 'date', 'hours', 'description' ),
+    return !(Em.isEmpty(this.get('project')) ||
+             Em.isEmpty(this.get('date'))    ||
+             Em.isEmpty(this.get('hours'))   ||
+             Em.isEmpty(this.get('description')));
+  }.property('project', 'date', 'hours', 'description'),
 
-  isInvalid: Em.computed.not( 'isValid' ),
+  isInvalid: Em.computed.not('isValid'),
 
-  projectEmpty: Em.computed.empty( 'project' )
-
+  projectEmpty: Em.computed.empty('project')
 });
