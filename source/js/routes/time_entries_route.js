@@ -15,6 +15,7 @@ ETT.TimeEntriesRoute = Em.Route.extend({
   setupController: function(controller) {
     controller.set('isIndex', true);
     this.controllerFor('projects').set('content', ETT.Project.find());
+    this.controllerFor('timeEntriesNew').createNewEntry();
   },
 
   deactivate: function() {

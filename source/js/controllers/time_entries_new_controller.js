@@ -1,16 +1,17 @@
 ETT.TimeEntriesNewController = Em.ObjectController.extend({
   needs: ['timeEntries', 'projects', 'project'],
   isIndex: Em.computed.alias('controllers.timeEntries.isIndex'),
-
-  init: function() {
-    this._super();
-    this.createNewEntry();
-  },
+  currentProject: null,
 
   // Creates transaction + new TimeEntry
   createNewEntry: function() {
-    this.transaction = this.transaction || this.get('store').transaction();
-    this.set('content', this.transaction.createRecord(ETT.TimeEntry, {}));
+    var transaction, timeEntry, currentProject;
+    transaction = this.get('transaction') || this.get('store').transaction();
+    timeEntry   = transaction.createRecord(ETT.TimeEntry, {});
+    if (currentProject = this.get('currentProject')) {
+      timeEntry.set('project', currentProject);
+    }
+    this.set('content', timeEntry);
   },
 
   // Commit + clear current transaction
@@ -22,14 +23,16 @@ ETT.TimeEntriesNewController = Em.ObjectController.extend({
       date = new Date(date[0], date[1], date[2]);
       this.set('content.date', date);
     }
-    this.transaction.commit();
+    this.get('transaction').commit();
+    console.log('Created new entry, updating controller!');
     this.createNewEntry();
   },
 
   // Cancels the new TimeEntry creation process
   cancelNewEntry: function() {
-    if (this.transaction) {
-      this.transaction.rollback();
+    var transaction;
+    if (transaction = this.get('transaction')) {
+      transaction.rollback();
     }
   },
 
