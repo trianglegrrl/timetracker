@@ -8,7 +8,7 @@ ETT.TimeEntriesRoute = Em.Route.extend({
     this.render('totals', {
       into: 'application',
       outlet: 'totals',
-      controller: this.controllerFor('projects')
+      controller: 'projects'
     });
   },
 
