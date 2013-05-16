@@ -1,24 +1,28 @@
 ETT.Project = DS.Model.extend({
-  timeEntries:  DS.hasMany('ETT.TimeEntry'),
-  name:         DS.attr('string'),
-  rate:         DS.attr('number'),
-  budget:       DS.attr('number'),
-  slug:         DS.attr('string'),
+  timeEntries: DS.hasMany('ETT.TimeEntry'),
+  name:        DS.attr('string'),
+  rate:        DS.attr('number'),
+  budget:      DS.attr('number'),
+  slug:        DS.attr('string'),
 
   paidHours: function() {
     var reducer = function(i, timeEntry, index, enumerable) {
-      if ( timeEntry.get( 'isNew' ) || timeEntry.get('paid') === false ) { return i; }
+      if (timeEntry.get('isNew') || timeEntry.get('paid') === false) {
+        return i;
+      }
       var hours = timeEntry.get('hours');
-      return i + parseFloat( Em.isEmpty( hours ) ? 0 : hours );
+      return i + parseFloat(Em.isEmpty(hours) ? 0 : hours);
     };
     return this.get('timeEntries').reduce(reducer, 0);
   }.property('timeEntries.@each.hours', 'timeEntries.@each.paid'),
 
   unpaidHours: function() {
     var reducer = function(i, timeEntry, index, enumerable) {
-      if ( timeEntry.get( 'isNew' ) || timeEntry.get('paid') === true ) { return i; }
+      if (timeEntry.get('isNew') || timeEntry.get('paid') === true) {
+        return i;
+      }
       var hours = timeEntry.get('hours');
-      return i + parseFloat( Em.isEmpty( hours ) ? 0 : hours );
+      return i + parseFloat(Em.isEmpty(hours) ? 0 : hours);
     };
     return this.get('timeEntries').reduce(reducer, 0);
   }.property('timeEntries.@each.hours', 'timeEntries.@each.paid'),
@@ -38,5 +42,4 @@ ETT.Project = DS.Model.extend({
   totalDollars: function() {
     return this.get('totalHours') * this.get('rate');
   }.property('totalHours')
-
 });

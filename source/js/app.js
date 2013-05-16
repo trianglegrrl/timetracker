@@ -22,4 +22,4 @@ $.ajaxSetup({
 
 window.ETT = Ember.Application.create({
   LOG_TRANSITIONS: true // Log routing transitions
-})
+});

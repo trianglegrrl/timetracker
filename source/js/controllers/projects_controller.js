@@ -1,5 +1,4 @@
 ETT.ProjectsController = Em.ArrayController.extend({
-
   paidHours: function() {
     return this._calculateTotalByProperty('paidHours');
   }.property('@each.paidHours'),
@@ -30,5 +29,4 @@ ETT.ProjectsController = Em.ArrayController.extend({
     };
     return this.reduce(reducer, 0);
   }
-
 });

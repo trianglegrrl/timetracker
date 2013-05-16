@@ -1,1 +1,1 @@
-ETT.TimeEntryController = Em.ObjectController.extend()
+ETT.TimeEntryController = Em.ObjectController.extend();
