@@ -8,8 +8,8 @@ ETT.ProjectsController = Em.ArrayController.extend({
   }.property('@each.unpaidHours'),
 
   totalHours: function() {
-    return this._calculateTotalByProperty('totalHours');
-  }.property('@each.totalHours'),
+    return this.get( 'paidHours' ) + this.get( 'unpaidHours' );
+  }.property( 'paidHours', 'unpaidHours' ),
 
   paidDollars: function() {
     return this._calculateTotalByProperty('paidDollars');
@@ -20,13 +20,13 @@ ETT.ProjectsController = Em.ArrayController.extend({
   }.property('@each.unpaidDollars'),
 
   totalDollars: function() {
-    return this._calculateTotalByProperty('totalDollars');
-  }.property('@each.totalDollars'),
+    return this.get( 'paidDollars' ) + this.get( 'unpaidDollars' );
+  }.property( 'paidDollars', 'unpaidDollars' ),
 
-  _calculateTotalByProperty: function(property) {
-    var reducer = function(i, project, index, enumerable) {
-      return i + parseFloat(project.get(property));
+  _calculateTotalByProperty: function( property ) {
+    var reducer = function( i, project ) {
+      return i + parseFloat( project.get( property ) );
     };
     return this.reduce(reducer, 0);
-  }
+  },
 });
