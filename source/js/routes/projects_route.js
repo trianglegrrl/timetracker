@@ -1,11 +1,13 @@
 ETT.ProjectsRoute = Ember.Route.extend({
   model: function(){
-    var result = [];
+    results = [];
     $.ajax('http://embergarten.unspace.ca/projects',{
-      success: function(data){
-        result.pushObjects(data.projects);
+      success: function (data) {
+        data.projects.forEach(function(p){
+          results.pushObject(ETT.Project.create(p));
+        })
       }
     });
-    return result;
+    return results;
   }
 });
