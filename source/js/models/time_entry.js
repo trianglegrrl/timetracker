@@ -1,0 +1,1 @@
+ETT.TimeEntry = Ember.Object.extend({});
