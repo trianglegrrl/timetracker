@@ -6,7 +6,7 @@ ETT.ProjectsIndexRoute = Ember.Route.extend({
 
 ETT.ProjectsShowRoute = Ember.Route.extend({
   model: function (params) { 
-    return ETT.Project.find(params.project_id);
+    return ETT.Project.find(params);
   },
   setupController: function (controller, model) {
     model.findTimeEntries();

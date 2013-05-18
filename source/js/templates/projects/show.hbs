@@ -1,9 +1,9 @@
-<h1>Name: {{name}}</h1>
+<h1>Name: {{name}} - Total hours {{totalHours}}, total ${{totalDollars}}</h1>
 <em>Rate: {{rate}} - Budget: {{budget}}</em>
 
 <h2>Time entries</h2>
 <ul>
   {{#each timeEntries}}
-    <li>({{hours}} hours)  - {{description}}</li>
+    <li>({{hours}} hours)  - {{description}} - ${{dollars}}</li>
   {{/each}}
 </ul>
