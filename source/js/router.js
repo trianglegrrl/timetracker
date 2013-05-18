@@ -1,3 +1,6 @@
 ETT.Router.map(function() {
-  this.route('projects');
+  this.resource('projects', { path: '/projects' },
+    function() {
+      this.route('show', { path: ':project_id' });
+    });
 });

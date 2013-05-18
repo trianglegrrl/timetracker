@@ -12,7 +12,7 @@
 $.ajaxSetup({
   dataType: 'json',
   beforeSend: function(xhr) {
-    xhr.setRequestHeader('x-api-key', 'ADD YOUR KEY HERE!');
+    xhr.setRequestHeader('x-api-key', 'alaina-hardie');
   }
 });
 
